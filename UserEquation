@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+
+int main() {
+
+    double first_number;
+    double second_number;
+    
+    char character;
+    
+    std::cout << "Enter your first number" << std::endl;
+    std::cin >> first_number;
+    std::cout << "Enter your second number" << std::endl;
+    std::cin >> second_number;
+    std::cout << "Type operation type (eg. +, -, *, /)" 
+        << std::endl;
+    std::cin >> character;
+    if(character == '+') {
+        std::cout << "Sum: " << first_number + second_number
+            << std::endl;
+    } else if(character == '-') {
+        std::cout << "Difference: " << first_number - second_number
+        << std::endl;
+    } else if(character == '*') {
+        std::cout << "Product: " << first_number * second_number
+        << std::endl;
+    } else {
+        if(first_number == 1 && second_number == 0) {
+            std::cerr << "Error: this is undefined or is infinite";
+        } else if(first_number == 0 && second_number == 0) {
+            std::cerr << "Error: this is infinite";
+        } else {
+            std::cout << "Quotient: " << first_number/second_number
+                << std::endl;
+        }
+    }
+    
+    return 0;
+}
