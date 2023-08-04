@@ -1,9 +1,13 @@
 #include <iostream>
 #include <string>
 
+//Prototype 
+double result(double first_number, double second_number, 
+    char character);
+
 int main() {
 
-    //User-input number
+    //User-input numbers
     double first_number;
     double second_number;
 
@@ -22,8 +26,16 @@ int main() {
     std::cout << "Type operation type (eg. +, -, *, /, %)" 
         << std::endl;
     std::cin >> character;
+    
+    //Calculates the result
+    result(first_number, second_number, character);
 
-    //Used to calcualte the result through a series of checks
+    //Indicates that the program has no errors
+    return 0;
+}
+
+double result(double first_number, double second_number, 
+    char character) {
     if(character == '%') { //Remainder
         std::cout << "Remainder: " << int (first_number) % int (second_number) << std::endl;
     } else if(character == '+') { //Addition
@@ -44,7 +56,4 @@ int main() {
             std::cout << "Quotient: " << first_number/second_number;
         }
     }
-
-    //Indicates that the program has no errors
-    return 0;
 }
