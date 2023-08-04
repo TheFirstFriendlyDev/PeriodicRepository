@@ -1,43 +1,50 @@
-// Online C++ compiler to run C++ program online
 #include <iostream>
 #include <string>
 
 int main() {
-    // Write C++ code here
-    char response;
-    
+
+    //User-input number
     double first_number;
     double second_number;
-    
+
+    //Operation type (eg. +, -, *, /, %)
     char character;
-    
+
+    //Asks for first number, then gets user input for it
     std::cout << "Enter your first number" << std::endl;
     std::cin >> first_number;
+
+    //Asks for second number, then gets user input for it
     std::cout << "Enter your second number" << std::endl;
     std::cin >> second_number;
+
+    //Asks for operation type, then gets user input for it
     std::cout << "Type operation type (eg. +, -, *, /, %)" 
         << std::endl;
     std::cin >> character;
-    if(character == '%') {
+
+    //Used to calcualte the result through a series of checks
+    if(character == '%') { //Remainder
         std::cout << "Remainder: " << int (first_number) % int (second_number) << std::endl;
-    } else if(character == '+') {
+    } else if(character == '+') { //Addition
         std::cout << "Sum: " << first_number + second_number
             << std::endl;
-    } else if(character == '-') {
+    } else if(character == '-') { //Subtraction
         std::cout << "Difference: " << first_number - second_number
         << std::endl;
-    } else if(character == '*') {
+    } else if(character == '*') { //Multiplication
         std::cout << "Product: " << first_number * second_number
         << std::endl;
-    } else if(character == '/') {
-        if(first_number == 1 && second_number == 0) {
+    } else if(character == '/') { //Division
+        if(first_number == 1 && second_number == 0) { //Can't calculate 1/0
             std::cerr << "Error: this is undefined or is infinite";
-        } else if(first_number == 0 && second_number == 0) {
+        } else if(first_number == 0 && second_number == 0) { //Can't calculate 0/0
             std::cerr << "Error: this is infinite";
-        } else {
+        } else { //Finally division
             std::cout << "Quotient: " << first_number/second_number;
         }
     }
-    
+
+    //Indicates that the program has no errors
     return 0;
 }
