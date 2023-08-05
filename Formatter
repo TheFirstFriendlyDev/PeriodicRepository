@@ -21,7 +21,7 @@ int main() {
 void label(int w, std::string label1, std::string label2,
     std::string label3, bool indent) {
         
-    std::cout << std::right;
+    std::cout << std::left;
     std::cout << label1  << std::setw(w) << label2 
         << std::setw(w/2) << label3 << std::endl;
 
@@ -35,7 +35,7 @@ void label(int w, std::string label1, std::string label2,
 void addStrings(int w, std::string string1, 
     std::string string2, int number) {
     
-    std::cout << std::right;
+    std::cout << std::left;
     std::cout << string1
         << std::setw(w) << string2 << std::setw(w/2) 
         << number << std::endl << std::flush;
