@@ -1,5 +1,5 @@
-#include <iostream>
+#include <stdin.h>
 
 int main() {
-  std::out << "Hello, World" << std::endl;
+  printf("Hello, World");
 }
