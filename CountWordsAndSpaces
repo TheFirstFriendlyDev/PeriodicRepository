@@ -1,0 +1,58 @@
+#include <iostream>
+#include <cctype>
+#include <cstring>
+#include <memory>
+
+int main() {
+    // Dynamically allocate memory for count, wordCount, and inWord using smart pointers
+    std::unique_ptr<int> count = std::make_unique<int>(0);
+    std::unique_ptr<int> wordCount = std::make_unique<int>(0);
+    std::unique_ptr<bool> inWord = std::make_unique<bool>(false);
+
+    // Dynamically allocate memory for maxWords and maxChars
+    std::unique_ptr<int> maxWords = std::make_unique<int>(300);
+    std::unique_ptr<int> maxChars = std::make_unique<int>(*maxWords * 5); // Assuming an average of 5 characters per word
+    
+    std::unique_ptr<char[]> input = std::make_unique<char[]>(*maxChars);
+    std::cout << "Enter a " << *maxWords << "-word essay:\n";
+    std::cin.getline(input.get(), *maxChars);
+
+    std::unique_ptr<char[]> arr = std::make_unique<char[]>(std::strlen(input.get()) + 1);
+    std::unique_ptr<char[]> arr2 = std::make_unique<char[]>(std::strlen(input.get()) + 1);
+    
+    std::strcpy(arr.get(), input.get());
+
+    for (int i = 0; i < std::strlen(arr.get()); i++) {
+        arr[i] = std::toupper(arr[i]);
+        arr2[i] = std::tolower(arr[i]);
+        if (std::isblank(arr[i]) != 0) {
+            std::cout << "Found blank space at [" << i << "]" << std::endl;
+            (*count)++;
+        }
+    }
+    
+    std::cout << "-----------------------------------" << std::endl 
+        << std::flush;
+
+    arr[std::strlen(arr.get())] = '\0';
+
+    // Count words
+    for (int i = 0; i < std::strlen(arr.get()); i++) {
+        if (std::isalpha(arr[i])) {
+            if (!(*inWord)) {
+                *inWord = true;
+                (*wordCount)++;
+            }
+        } else {
+            *inWord = false;
+        }
+    }
+    std::cout << "Uppercased string: " << arr.get() << std::endl;
+    std::cout << "Lowercased string: " << arr2.get() << std::endl;
+    std::cout << "Total blank spaces: " << *count << std::endl;
+    std::cout << "Total words: " << *wordCount << std::endl;
+
+    // count, wordCount, and inWord will be deallocated automatically when they go out of scope
+    
+    return 0;
+}
