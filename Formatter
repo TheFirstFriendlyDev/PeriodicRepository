@@ -1,0 +1,43 @@
+#include <iostream>
+#include <iomanip>
+#include <set>
+
+void label(int w, std::string label1, std::string label2,
+    std::string label3, bool indent);
+
+void addStrings(int w, std::string string1, 
+    std::string string2, int number);
+
+int main() {
+
+    int w1 = 12;
+    std::cout << std::endl << std::flush;
+    label(w1, "Name", "Lastname", "Age",true);
+    addStrings(w1, "Joe", "Mama",50);
+    addStrings(w1, "Daniel", "Jameson",50);
+
+}
+
+void label(int w, std::string label1, std::string label2,
+    std::string label3, bool indent) {
+        
+    std::cout << std::left;
+    std::cout <<  std::setw(w) << label1  << std::setw(w) << label2 
+        << std::setw(w/2) << label3 << std::endl;
+
+    std::cout << std::boolalpha;
+    if(indent == true) {
+        std::cout << std::endl << std::flush;
+    }
+    
+}
+
+void addStrings(int w, std::string string1, 
+    std::string string2, int number) {
+    
+    std::cout << std::left;
+    std::cout <<  std::setw(w) << string1
+        << std::setw(w) << string2 << std::setw(w/2) 
+        << number << std::endl << std::flush;
+
+}

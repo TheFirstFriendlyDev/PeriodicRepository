@@ -1,0 +1,13 @@
+#include <iostream>
+
+int main() {
+
+    int i = 10;
+    int j = 20;
+
+    //Returns the actual true/false instead of 0/1 which also represents true/false
+    std::cout << std::boolalpha;
+    std::cout << "Comparison is: " << (i>j) << std::endl;
+
+    return 0;
+}

@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+
+int main() {
+
+    //variables used for the name and age
+    std::string full_name;
+    int age;
+    
+    std::cout << "Enter your full name" << std::endl;
+
+    //getline is used so the compiler isn't confused of the empty spaces
+    std::getline(std::cin,full_name);
+
+    //user input for age
+    std::cout << "Enter your age" << std::endl;
+    std::cin >> age;
+
+    //the output
+    std::cout << "Hello " << full_name << ", you are " << 
+            age << " years old";
+
+    //indicates that the program has no issues
+    return 0;
+
+}

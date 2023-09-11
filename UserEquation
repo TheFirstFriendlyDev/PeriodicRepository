@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+
+//Prototype 
+double result(double first_number, double second_number, 
+    char character);
+
+int main() {
+
+    //User-input numbers
+    double *p1 {new double{NULL}};
+    double *p1 {new double{NULL}};
+
+    //Operation type (eg. +, -, *, /, %)
+    char *p1 {new char{NULL}};
+
+    //Asks for first number, then gets user input for it
+    std::cout << "Enter your first number" << std::endl;
+    std::cin >> *p1;
+
+    //Asks for second number, then gets user input for it
+    std::cout << "Enter your second number" << std::endl;
+    std::cin >> *p2;
+
+    //Asks for operation type, then gets user input for it
+    std::cout << "Type operation type (eg. +, -, *, /, %)" 
+        << std::endl;
+    std::cin >> *p3;
+    
+    //Calculates the result
+    result(*p1, *p2, *p3);
+
+    delete *p1;
+    *p1 = nullptr;
+
+    delete *p2;
+    *p2 = nullptr;
+
+    delete *p3;
+    *p3 = nullptr;
+
+    //Indicates that the program has no errors
+    return 0;
+}
+
+double result(double first_number, double second_number, 
+    char character) {
+    if(character == '%') { //Remainder
+        std::cout << "Remainder: " << int (first_number) % int (second_number) << std::endl;
+    } else if(character == '+') { //Addition
+        std::cout << "Sum: " << first_number + second_number
+            << std::endl;
+    } else if(character == '-') { //Subtraction
+        std::cout << "Difference: " << first_number - second_number
+        << std::endl;
+    } else if(character == '*') { //Multiplication
+        std::cout << "Product: " << first_number * second_number
+        << std::endl;
+    } else if(character == '/') { //Division
+        if(first_number == 1 && second_number == 0) { //Can't calculate 1/0
+            std::cerr << "Error: this is undefined or is infinite";
+        } else if(first_number == 0 && second_number == 0) { //Can't calculate 0/0
+            std::cerr << "Error: this is infinite";
+        } else { //Finally division
+            std::cout << "Quotient: " << first_number/second_number;
+        }
+    }
+}

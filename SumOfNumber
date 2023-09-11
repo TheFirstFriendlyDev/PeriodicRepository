@@ -1,0 +1,28 @@
+#include <iostream>
+
+int sum(int first_number, int second_number) {
+    int return_value = first_number + second_number;
+    return return_value;
+}
+
+
+int main() {
+
+    //Used for user input
+    int first_number;
+    int second_number;
+
+    //User input
+    std::cout << "Enter your first number" << std::endl;
+    std::cin >> first_number;
+
+    std::cout << "Enter your second number" << std::endl;
+    std::cin >> second_number;
+
+    //Sum of numbers
+    std::cout << "The sum is " << 
+        sum(first_number,second_number) << std::endl;
+
+    //Indicates that there is no problem
+    return 0;
+}
